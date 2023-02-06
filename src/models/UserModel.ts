@@ -1,5 +1,5 @@
 import { Pool, ResultSetHeader } from 'mysql2/promise';
-import { IUser, IToken } from '../interfaces';
+import { IUser, IToken, User } from '../interfaces';
 import { generateToken } from '../utils/jwt';
 
 export default class UserModel {
@@ -22,5 +22,15 @@ export default class UserModel {
     
     const newUser: IToken = { token };
     return newUser;
+  };
+
+  public findByUsername = async (username: string): Promise<User | null> => {
+    const query = 'SELECT * FROM Trybesmith.users WHERE username = ?';
+    const values = [username];
+
+    const [data] = await this.connection.execute(query, values);
+    const [user] = data as User[];
+
+    return user || null;
   };
 }
