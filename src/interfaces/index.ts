@@ -42,3 +42,7 @@ export interface IUserLogin {
   username: string,
   password: string,
 }
+
+export interface IReqUser {
+  user?: { id: number, username: string },
+}

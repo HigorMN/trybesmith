@@ -17,6 +17,14 @@ export default class UserController {
     return res.status(201).json(created);
   };
 
+  public findByUsername = async (req: Request, res: Response) => {
+    const { username } = req.body;
+
+    const user = await this.service.findByUsername(username);
+
+    return res.status(200).json(user);
+  };
+
   public login = async (req: Request, res: Response) => {
     const { username, password } = req.body;
 
