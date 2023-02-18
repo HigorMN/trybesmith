@@ -42,28 +42,65 @@ Unsupported config option for services.node: 'platform'
 
 **Login na aplicação**
 
-```javascript
-POST / login;
+```http
+  POST /login
 ```
 
-<table>
-  <thead>
-    <tr>
-      <th>Parâmetro</th>
-      <th>Tipo</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`username`</td>
-      <td>`string`</td>
-      <td>Obrigatório no body. User cadastrado no banco de dados</td>
-    </tr>
-    <tr>
-      <td>`password`</td>
-      <td>`string`</td>
-      <td>Obrigatório no body. Password cadastrado no banco de dados</td>
-    </tr>
-  </tbody>
-</table>
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `username` | `string` | **Obrigatório no body**. User cadastrado no banco de dados |
+| `password` | `string` | **Obrigatório no body**. Password cadastrado no banco de dados |
+
+**Criar um user**
+
+```http
+  POST /users
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `username`      | `string` | **Obrigatório no body**. User para cadastrar |
+| `vocation`      | `string` | **Obrigatório no body**. Vocation para cadastrar |
+| `level`      | `number` | **Obrigatório no body**. Level para cadastrar |
+| `password`      | `string` | **Obrigatório no body**. Password para cadastrar |
+
+**Criar pedidos da loja**
+
+```http
+  POST /orders
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `Authorization`      | `string` | **Obrigatório no Header**. Key Recebida no login ou na hora de criar um usuario |
+| `productsIds`      | `Array<Number>` | **Obrigatório no body**. ProductsIds existentes no banco de dados |
+
+**Criar produtos na loja**
+
+```http
+  POST /products
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `Authorization`      | `string` | **Obrigatório no Header**. Key Recebida no login ou na hora de criar um usuario |
+| `name`      | `string` | **Obrigatório no body**. Nome do produto |
+| `amount`      | `number` | **Obrigatório no body**. Quantidade do produto |
+
+**Pegar produtos da loja**
+
+```http
+  GET /products
+```
+
+**Pegar orders da loja**
+
+```http
+  GET /orders
+```
+
+Qualquer duvida entre em contato comigo:
+
+E-mail: higor.maranhao2000@gmail.com
+
+Linkedin: https://www.linkedin.com/in/higor-maranhao/
