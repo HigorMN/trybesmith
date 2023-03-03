@@ -10,11 +10,13 @@ Back-end: `Node`, `Express`, `Typescript`, `JWT`, `MySQL2`, `Docker`
 
 <h2>🐋 Rodando no Docker</h2>
 
-Para executar o serviço Node, utilize o comando `docker-compose up -d`
+1. Clone o repositório em sua máquina local.
 
-Esse serviço ira inicializar um container chamado `trybers_and_dragons`. A partir daqui você pode rodar o container `trybers_and_dragons` via CLI ou abri-lo no VS Code. Use o comando `docker exec -it trybers_and_dragons bash`.
+2. Certifique-se de ter o docker-compose instalado.
 
-Ele te dará acesso ao terminal interativo do container criado pelo compose, que está rodando em segundo plano. Instale as dependências "Caso existam" com `npm install`
+3. Execute o comando `docker-compose up -d`.
+
+4. Acesse o endereço http://localhost:3000 para acessar a API.
 
 ⚠️ **Atenção** ⚠️ Caso opte por utilizar o Docker, TODOS os comandos disponíveis no package.json (npm start, npm test, npm run dev, ...) devem ser executados DENTRO do container, ou seja, no terminal que aparece após a execução do comando docker exec citado acima.
 
@@ -46,9 +48,9 @@ Unsupported config option for services.node: 'platform'
   POST /login
 ```
 
-| Parâmetro   | Tipo       | Descrição                           |
-| :---------- | :--------- | :---------------------------------- |
-| `username` | `string` | **Obrigatório no body**. User cadastrado no banco de dados |
+| Parâmetro  | Tipo     | Descrição                                                      |
+| :--------- | :------- | :------------------------------------------------------------- |
+| `username` | `string` | **Obrigatório no body**. User cadastrado no banco de dados     |
 | `password` | `string` | **Obrigatório no body**. Password cadastrado no banco de dados |
 
 **Criar um user**
@@ -57,12 +59,12 @@ Unsupported config option for services.node: 'platform'
   POST /users
 ```
 
-| Parâmetro   | Tipo       | Descrição                                   |
-| :---------- | :--------- | :------------------------------------------ |
-| `username`      | `string` | **Obrigatório no body**. User para cadastrar |
-| `vocation`      | `string` | **Obrigatório no body**. Vocation para cadastrar |
-| `level`      | `number` | **Obrigatório no body**. Level para cadastrar |
-| `password`      | `string` | **Obrigatório no body**. Password para cadastrar |
+| Parâmetro  | Tipo     | Descrição                                        |
+| :--------- | :------- | :----------------------------------------------- |
+| `username` | `string` | **Obrigatório no body**. User para cadastrar     |
+| `vocation` | `string` | **Obrigatório no body**. Vocation para cadastrar |
+| `level`    | `number` | **Obrigatório no body**. Level para cadastrar    |
+| `password` | `string` | **Obrigatório no body**. Password para cadastrar |
 
 **Criar pedidos da loja**
 
@@ -70,10 +72,10 @@ Unsupported config option for services.node: 'platform'
   POST /orders
 ```
 
-| Parâmetro   | Tipo       | Descrição                                   |
-| :---------- | :--------- | :------------------------------------------ |
-| `Authorization`      | `string` | **Obrigatório no Header**. Key Recebida no login ou na hora de criar um usuario |
-| `productsIds`      | `Array<Number>` | **Obrigatório no body**. ProductsIds existentes no banco de dados |
+| Parâmetro       | Tipo            | Descrição                                                                       |
+| :-------------- | :-------------- | :------------------------------------------------------------------------------ |
+| `Authorization` | `string`        | **Obrigatório no Header**. Key Recebida no login ou na hora de criar um usuario |
+| `productsIds`   | `Array<Number>` | **Obrigatório no body**. ProductsIds existentes no banco de dados               |
 
 **Criar produtos na loja**
 
@@ -81,11 +83,11 @@ Unsupported config option for services.node: 'platform'
   POST /products
 ```
 
-| Parâmetro   | Tipo       | Descrição                                   |
-| :---------- | :--------- | :------------------------------------------ |
-| `Authorization`      | `string` | **Obrigatório no Header**. Key Recebida no login ou na hora de criar um usuario |
-| `name`      | `string` | **Obrigatório no body**. Nome do produto |
-| `amount`      | `number` | **Obrigatório no body**. Quantidade do produto |
+| Parâmetro       | Tipo     | Descrição                                                                       |
+| :-------------- | :------- | :------------------------------------------------------------------------------ |
+| `Authorization` | `string` | **Obrigatório no Header**. Key Recebida no login ou na hora de criar um usuario |
+| `name`          | `string` | **Obrigatório no body**. Nome do produto                                        |
+| `amount`        | `number` | **Obrigatório no body**. Quantidade do produto                                  |
 
 **Pegar produtos da loja**
 
